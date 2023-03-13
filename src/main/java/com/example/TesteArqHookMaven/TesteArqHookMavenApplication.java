@@ -8,6 +8,8 @@ public class TesteArqHookMavenApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TesteArqHookMavenApplication.class, args);
+		
+		//teste commit
 	}
 
 }
