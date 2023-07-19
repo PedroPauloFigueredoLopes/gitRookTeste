@@ -32,6 +32,27 @@
 	<build>
 	
 		<plugins>
+		<plugin>
+      <groupId>com.rudikershaw.gitbuildhook</groupId>
+      <artifactId>git-build-hook-maven-plugin</artifactId>
+      <version>3.4.1</version>
+      <configuration>
+        <gitConfig>
+          <!-- The location of the directory you are using to store the Git hooks in your project. -->
+          <core.hooksPath>C:\Dev\FESP\Eclipse Workspace\ARQUITETURA\repository\TesteArqHookMaven\.git\hooks</core.hooksPath>
+          <!-- Some other project specific git config that you want to set. -->
+          <custom.configuration>true</custom.configuration> 
+        </gitConfig>
+      </configuration>
+      <executions>
+        <execution>
+          <goals>       
+            <!-- Sets git config specified under configuration > gitConfig. -->
+            <goal>configure</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
 		  <plugin>
 		  
     <groupId>com.rudikershaw.gitbuildhook</groupId>
