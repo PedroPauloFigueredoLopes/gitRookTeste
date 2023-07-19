@@ -1,12 +1,18 @@
 #!/bin/bash
 
 commit_msg_file=$1
+commit_msg=$(cat $commit_msg_file)
 
-# Lê a mensagem do commit
-commit_msg=$(cat "$commit_msg_file")
-
-# Verifica se a mensagem do commit está no formato convencional
-if ! grep -qE "^(feat|fix|docs|style|refactor|test|chore)(\(.+\))?: .+" "$commit_msg_file"; then
-  echo "O formato da mensagem do commit é inválido. Use o formato convencional."
+# Verifica se a mensagem de commit segue o formato Conventional Commits
+if ! echo "$commit_msg" | grep -qE "^(feat|fix|docs|style|refactor|test|chore)(\(.+\))?!?: .{1,}$"; then
+  echo "Erro: Mensagem de commit inválida. Utilize o formato Conventional Commits."
+  echo "Exemplos válidos:"
+  echo "  feat: Adiciona nova funcionalidade"
+  echo "  fix: Corrige um bug"
+  echo "  docs: Atualiza documentação"
+  echo "  style: Realiza mudanças de formatação (espaços, formatação, etc.)"
+  echo "  refactor: Refatora o código, sem adicionar novas funcionalidades ou corrigir bugs"
+  echo "  test: Adiciona ou modifica testes"
+  echo "  chore: Realiza tarefas diversas de manutenção do código"
   exit 1
 fi
