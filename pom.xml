@@ -60,8 +60,8 @@
     <version>3.4.1</version>
     <configuration>
         <installHooks>
-            <commit-msg>hooks/commit-msg</commit-msg>
-            <pre-commit>hooks/pre-commit</pre-commit>
+            <commit-msg>githooks/commit-msg</commit-msg>
+            <pre-commit>githooks/pre-commit</pre-commit>
         </installHooks>
     </configuration>
     <executions>
