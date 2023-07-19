@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# This script enforces Conventional Commits format and provides examples if not compliant.
+
+commit_msg_file="$1"
+
+commit_msg=$(cat "$commit_msg_file")
+
+conventional_commit_pattern="^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\([^\)]+\))?:( .{1,72})$"
+
+if ! [[ "$commit_msg" =~ $conventional_commit_pattern ]]; then
+    echo "Erro: O commit não está no formato Conventional Commits."
+    echo "Exemplos de mensagens de commit válidas:"
+    echo "  feat: Adicionar nova funcionalidade"
+    echo "  fix: Corrigir bug"
+    echo "  docs: Atualizar a documentação"
+    echo "  style: Fazer alterações que não afetam o comportamento do código (espaço em branco, formatação, etc)"
+    echo "  refactor: Refatorar o código sem adicionar novas funcionalidades ou corrigir bugs"
+    echo "  test: Adicionar ou melhorar os testes do código"
+    echo "  chore: Atualizar tarefas de build, configurações, etc"
+    echo "  build: Fazer alterações que afetam o sistema de build ou dependências externas"
+    echo "  ci: Atualizar scripts e configurações de integração contínua"
+    echo "  revert: Reverter um commit anterior"
+    echo "Lembre-se de seguir o formato: <tipo>(escopo): mensagem"
+    exit 1
+fi
