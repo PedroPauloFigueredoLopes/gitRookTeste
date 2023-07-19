@@ -1,0 +1,4 @@
+#!/bin/bash
+GREEN='\033[0;32m'
+echo -e "${GREEN} Commit realizado com sucesso!"
+

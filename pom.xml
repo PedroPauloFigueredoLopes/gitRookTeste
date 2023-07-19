@@ -55,6 +55,7 @@
     </plugin>
 		  <plugin>
 		  
+		  
     <groupId>com.rudikershaw.gitbuildhook</groupId>
     <artifactId>git-build-hook-maven-plugin</artifactId>
     <version>3.4.1</version>
@@ -62,6 +63,7 @@
         <installHooks>
             <commit-msg>githooks/commit-msg</commit-msg>
             <pre-commit>githooks/pre-commit</pre-commit>
+            <post-commit>githooks/post-commit</post-commit>
         </installHooks>
     </configuration>
     <executions>

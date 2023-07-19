@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Cores para mensagens
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # Sem cor
+
+# Verificar se o arquivo pom.xml foi alterado
+if git diff --cached --name-only --diff-filter=ACM | grep -E "pom.xml"; then
+    echo -e "${RED}O arquivo pom.xml foi alterado.Voce nao tem permissao para alterar esse arquivo, verifique com seu gestor.${NC}"
+    exit 1
+else
+    echo -e "${GREEN}O arquivo pom.xml não foi alterado. O commit será concluído.${NC}"
+    exit 0
+fi
